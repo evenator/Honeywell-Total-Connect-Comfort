@@ -3,7 +3,7 @@
 from setuptools import setup
 
 setup(name='Honeywell Total Connect Comfort',
-      version='0.0.1',
+      version='0.0.2',
       description='Tools to enhance the Honeywell Total Connect Comfort thermostat',
       author='Ed Venator',
       author_email='evenator@gmail.com',
