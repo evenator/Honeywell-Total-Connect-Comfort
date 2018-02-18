@@ -5,6 +5,7 @@ from sqlalchemy.orm import sessionmaker
 
 Session = sessionmaker()
 
+
 class Database(object):
 
     def __init__(self, db_file):

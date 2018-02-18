@@ -4,6 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
+
 class DeviceData(Base):
     __tablename__ = 'device_data'
     time_stamp = Column(Integer, primary_key=True)
@@ -40,37 +41,38 @@ class DeviceData(Base):
         latest_data = data_dict['latestData']
         ui_data = latest_data['uiData']
         fan_data = latest_data['fanData']
-        return cls(time_stamp = time_stamp,
-            alerts = data_dict['alerts'].strip(),
-            communication_lost = data_dict['communicationLost'],
-            can_control_humidification = latest_data['canControlHumidification'],
-            # TODO drData
-            fan_is_running = fan_data['fanIsRunning'],
-            fan_mode = fan_data['fanMode'],
-            has_fan = latest_data['hasFan'],
-            cool_setpoint = ui_data['CoolSetpoint'],
-            cool_next_period = ui_data['CoolNextPeriod'],
-            deadband = ui_data['Deadband'],
-            device_id = ui_data['DeviceID'],
-            disp_temperature = ui_data['DispTemperature'],
-            disp_unit = ui_data['DisplayUnits'],
-            heat_setpoint = ui_data['HeatSetpoint'],
-            heat_next_period = ui_data['HeatNextPeriod'],
-            hold_until_capable = ui_data['HoldUntilCapable'],
-            # TODO Humidity
-            is_in_vacation_hold_mode = ui_data['IsInVacationHoldMode'],
-            schedule_capable = ui_data['ScheduleCapable'],
-            schedule_cool_setpoint = ui_data['ScheduleCoolSp'],
-            schedule_heat_setpoint = ui_data['ScheduleHeatSp'],
-            setpoint_change_allowed = ui_data['SetpointChangeAllowed'],
-            status_cool = ui_data['StatusCool'],  # TODO: Decode this
-            status_heat = ui_data['StatusHeat'],  # TODO: Decode this
-            # TODO Switch allowed data
-            system_switch_position = ui_data['SystemSwitchPosition'],  # TODO: Decode this
-            temporary_hold_until_time = ui_data['TemporaryHoldUntilTime'],
-            vacation_hold = ui_data['VacationHold'],
-            vacation_hold_cancelable = ui_data['VacationHoldCancelable'],
-            vacation_hold_until_time = ui_data['VacationHoldUntilTime'])
+        return cls(time_stamp=time_stamp,
+                   alerts=data_dict['alerts'].strip(),
+                   communication_lost=data_dict['communicationLost'],
+                   can_control_humidification=latest_data['canControlHumidification'],
+                   # TODO drData
+                   fan_is_running=fan_data['fanIsRunning'],
+                   fan_mode=fan_data['fanMode'],
+                   has_fan=latest_data['hasFan'],
+                   cool_setpoint=ui_data['CoolSetpoint'],
+                   cool_next_period=ui_data['CoolNextPeriod'],
+                   deadband=ui_data['Deadband'],
+                   device_id=ui_data['DeviceID'],
+                   disp_temperature=ui_data['DispTemperature'],
+                   disp_unit=ui_data['DisplayUnits'],
+                   heat_setpoint=ui_data['HeatSetpoint'],
+                   heat_next_period=ui_data['HeatNextPeriod'],
+                   hold_until_capable=ui_data['HoldUntilCapable'],
+                   # TODO Humidity
+                   is_in_vacation_hold_mode=ui_data['IsInVacationHoldMode'],
+                   schedule_capable=ui_data['ScheduleCapable'],
+                   schedule_cool_setpoint=ui_data['ScheduleCoolSp'],
+                   schedule_heat_setpoint=ui_data['ScheduleHeatSp'],
+                   setpoint_change_allowed=ui_data['SetpointChangeAllowed'],
+                   status_cool=ui_data['StatusCool'],  # TODO: Decode this
+                   status_heat=ui_data['StatusHeat'],  # TODO: Decode this
+                   # TODO Switch allowed data
+                   # TODO: Decode this
+                   system_switch_position=ui_data['SystemSwitchPosition'],
+                   temporary_hold_until_time=ui_data['TemporaryHoldUntilTime'],
+                   vacation_hold=ui_data['VacationHold'],
+                   vacation_hold_cancelable=ui_data['VacationHoldCancelable'],
+                   vacation_hold_until_time=ui_data['VacationHoldUntilTime'])
 
     def __repr__(self):
         return str(self.__dict__)
