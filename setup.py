@@ -9,5 +9,10 @@ setup(name='Honeywell Total Connect Comfort',
       author_email='evenator@gmail.com',
       url='https://github.com/evenator/Honeywell-Total-Connect-Comfort',
       scripts=['honeywell_cli'],
-      packages=['honeywell_total_connect_comfort']
+      packages=['honeywell_total_connect_comfort'],
+      install_requires=[
+          'lxml',
+          'requests',
+          'SQLAlchemy',
+      ],
 )
